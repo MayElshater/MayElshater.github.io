@@ -96,13 +96,17 @@
         <div class="project-grid">
             <div class="project-card">
                 <h3>PyramidParton</h3>
-                <p>Description of PyramidParton project</p>
-                <a href="#" class="button">View Project</a>
+                <p>A powerful AI-driven solution for automated document processing and data extraction.</p>
+                <div class="project-links">
+                    <a href="#" class="button" onclick="openVideoModal('pyramidparton-video')">Watch Demo</a>
+                </div>
             </div>
             <div class="project-card">
                 <h3>ImgGen</h3>
-                <p>Description of ImgGen project</p>
-                <a href="#" class="button">View Project</a>
+                <p>Advanced image generation system utilizing state-of-the-art AI models.</p>
+                <div class="project-links">
+                    <a href="#" class="button" onclick="openVideoModal('imggen-video')">Watch Demo</a>
+                </div>
             </div>
             <div class="project-card">
                 <h3>RAG Implementation</h3>
@@ -113,6 +117,19 @@
                 <h3>Face Emotion Detection</h3>
                 <p>AI-powered emotion recognition system</p>
                 <a href="#" class="button">View Project</a>
+            </div>
+        </div>
+
+        <!-- Video Modal -->
+        <div id="video-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <div class="video-container">
+                    <video id="demo-video" controls>
+                        <source src="" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
             </div>
         </div>
     </section>
@@ -132,5 +149,36 @@
     <footer>
         <p>&copy; 2024 May Mohamed Rashad. All rights reserved.</p>
     </footer>
+
+    <script>
+        const modal = document.getElementById('video-modal');
+        const video = document.getElementById('demo-video');
+        const closeBtn = document.getElementsByClassName('close-modal')[0];
+
+        const videos = {
+            'pyramidparton-video': './videos/pyramidparton-demo.mp4',
+            'imggen-video': './videos/imggen-demo.mp4'
+        };
+
+        function openVideoModal(videoId) {
+            modal.style.display = 'block';
+            video.src = videos[videoId];
+            video.play();
+        }
+
+        closeBtn.onclick = function() {
+            modal.style.display = 'none';
+            video.pause();
+            video.src = '';
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+                video.pause();
+                video.src = '';
+            }
+        }
+    </script>
 </body>
 </html> 
